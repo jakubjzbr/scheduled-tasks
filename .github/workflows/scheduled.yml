@@ -44,4 +44,6 @@ jobs:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
           API_KEY_ENV: ${{ secrets.API_KEY_ENV }}
+          ACCOUNT_SID_ENV: ${{ secrets.ACCOUNT_SID_ENV }}
+          AUTH_TOKEN_ENV: ${{ secrets.AUTH_TOKEN_ENV }}
         run: python main.py
