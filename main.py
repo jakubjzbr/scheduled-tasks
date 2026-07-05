@@ -25,7 +25,10 @@ list_of_weather2 = []
 for i in range(weather_params["cnt"]):
     exact_hour = data["list"][i]["dt_txt"].split(" ")[1].split(":")[0]
     list_of_weather1.append(data["list"][i]["weather"][0]["description"])
-    list_of_weather2.append(f"{exact_hour}-{int(exact_hour)+3}")
+    if len(str(int(exact_hour)+3))==1:
+        list_of_weather2.append(f"{exact_hour}-0{int(exact_hour)+3}")
+    else:
+        list_of_weather2.append(f"{exact_hour}-{int(exact_hour)+3}")
     if data["list"][i]["weather"][0]["id"] < 700:
         will_rain=True
 if will_rain:
@@ -33,7 +36,7 @@ if will_rain:
 else:
     body1='WEATHER ALERT: \n'
 for i in range(weather_params["cnt"]):
-    body1 += f"{list_of_weather1[i]}: {list_of_weather2[i]}\n"
+    body1 += f"{str(list_of_weather1[i]).capitalize()}: {list_of_weather2[i]}\n"
 client = Client(account_sid, auth_token)
 message = client.messages.create(
     from_ = "+12185100579",
