@@ -34,7 +34,6 @@ else:
     body1='WEATHER ALERT: \n'
 for i in range(weather_params["cnt"]):
     body1 += f"{list_of_weather1[i]}: {list_of_weather2[i]}\n"
-print(body1)
 client = Client(account_sid, auth_token)
 message = client.messages.create(
     from_ = "+12185100579",
